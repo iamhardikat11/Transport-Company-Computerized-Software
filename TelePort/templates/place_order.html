@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}
+Place Order
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <style>
+        img{
+            width: 20%;
+        }
+    </style>
+    <div class="container">
+        <br>
+        <form method="POST" class="form-register" style="color:white">
+            {{form.hidden_tag()}}
+            <img class="mb-4 rounded-circle" src="{{ url_for('static',filename='images/order.jpg') }}" alt="">
+            <br>
+            <h4 class="text-left">Place Order</h4>
+            <br>
+            <span class="d-block p-2 bg-dark text-white">{{form.senderID.label()}}</span>
+            {{form.senderID(class = "form-control", placeholder = "Enter Sender ID")}}
+            <span class="d-block p-2 bg-dark text-white">{{form.receiverID.label()}}</span>
+            {{form.receiverID(class = "form-control", placeholder = "Enter Receiver ID")}}
+            <span class="d-block p-2 bg-dark text-white">{{form.volume.label()}}</span>
+            {{form.volume(class = "form-control", placeholder = "Enter Volume of consignment")}}
+            
+            <br>
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+            <br>
+        </form>
+    </div>
+</body>
+{% endblock %}

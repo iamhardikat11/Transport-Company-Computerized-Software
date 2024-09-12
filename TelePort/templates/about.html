@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}
+About Page
+{% endblock %}
+{% block content %}
+<body class="text-center">
+    <style>
+        .img_card {
+            width: 20%;
+            height: auto;
+        }
+        .card{
+            align-items: center;
+        }
+        .card-title{
+            text-align: center;
+        }
+    </style>
+        <img src="{{ url_for('static',filename='images/companyLogo.PNG') }}" class="img_card" alt="...">
+        <br><br>
+          <h5 class="card-title">About us</h5>
+          <p class="card-text">TelePort is a transport company computerize software. It is a software that can help a transport company
+            computerize various book
+            keeping activities associated with its operations</p>
+  </body>
+  {% endblock %}

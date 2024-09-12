@@ -1,0 +1,111 @@
+{% block content %}
+<link
+  href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="container align-items-center">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="invoice-title">
+        <h2>Invoice</h2>
+        <h3 class="pull-right">Order # {{session.consignment.consignmentID}}</h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-xs-6">
+          <address>
+            <strong>Billed To:</strong><br />
+            {{session.consignment.sourceAddress}}
+          </address>
+        </div>
+        <div class="col-xs-6 text-right">
+          <address>
+            <strong>Shipped To:</strong><br />
+            {{session.consignment.destinationAddress}}
+          </address>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>Order summary</strong></h3>
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <!-- Your Columns HERE -->
+                  <th scope="col"><strong>ConsignmentID</strong></th>
+                  <th scope="col"><strong>ConsignmentSource</strong></th>
+                  <th scope="col"><strong>ConsignmentDestination</strong></th>
+                  <th scope="col"><strong>Order Date</strong></th>
+                  <th scope="col"><strong>ConsignmentVolume</strong></th>
+                  <th scope="col"><strong>ConsignmentCost</strong></th>
+                  <th scope="col"><strong>TruckAssigned</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                <tr>
+                  <td>{{session.consignment.consignmentID}}</td>
+                  <td>{{session.consignment.sourceAddress}}</td>
+                  <td>{{session.consignment.destinationAddress}}</td>
+                  <td>{{session.consignment.purchaseDate.date()}}</td>
+                  <td>{{session.consignment.volume}}</td>
+                  <td>{{session.consignment.revenue}}</td>
+                  <td>
+                      {% if session.consignment.truckAssigned == 0%}
+                          Not Assigned
+                      {% else %}
+                          {{session.consignment.truckAssigned}}
+                      {% endif %}
+                  </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .invoice-title h2,
+  .invoice-title h3 {
+    display: inline-block;
+  }
+
+  .table > tbody > tr > .no-line {
+    border-top: none;
+  }
+
+  .table > thead > tr > .no-line {
+    border-bottom: none;
+  }
+
+  .table > tbody > tr > .thick-line {
+    border-top: 2px solid;
+  }
+  .vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 0%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+</style>
+{% endblock %}

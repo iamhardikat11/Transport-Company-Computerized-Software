@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}
+Branch Details
+{% endblock %}
+{% block content %}
+<table class="table table-hover table-dark">
+    <thead class = "thead-dark">
+        <tr>
+            <th scope="col">Office ID</th>
+            <th scope="col">Address</th>
+            <th scope="col">Number of Trucks</th>
+            <th scope="col">Number of Employees</th>
+            <th scope="col">Volume Handled</th>
+            <th scope="col">Present Volume</th>
+            <th scope="col">Total Revenue</th>
+            <th scope="col">Rate</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for office in offices %}
+            <tr>
+                <td>{{office.officeID}}</td>
+                <td>{{office.address}}</td>
+                <td>{{office.numTrucks}}</td>
+                <td>{{office.numEmployees}}</td>
+                <td>{{office.volumeHandled}}</td>
+                <td>{{office.presentVolume}}</td>
+                <td>{{office.revenue}}</td>
+                <td>{{office.rate}}</td>
+            </tr>
+        {%  endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+                                        

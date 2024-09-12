@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}
+Customer Details (Branch: {{session.employee.branchID}})
+{% endblock %}
+{% block content %}
+<h2>Customer Details (Branch: {{session.employee.branchID}})</h2>
+<table class="table table-hover table-dark">
+    <thead class = "thead-dark">
+        <tr>
+            <!-- Your Columns HERE -->
+            <th scope="col">Customer ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Branch ID</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Email</th>
+            <th scope="col">Consignments </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for customer in customers %}
+            <tr>
+                <td>{{customer.customerID}}</td>
+                <td>{{customer.name}}</td>
+                <td>{{customer.address}}</td>
+                <td>{{customer.branchID}}</td>
+                <td>{{customer.phoneNumber}}</td>
+                <td>{{customer.email}}</td>
+                <td>{{customer.consignments}}</td>
+            </tr>
+        {%  endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+                                        

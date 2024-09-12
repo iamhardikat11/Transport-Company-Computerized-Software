@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}
+Bill ConsignmentID: {{session.consignment.consignmentID}}
+{% endblock %}
+{% block content %}
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <!-- Your Columns HERE -->
+            <th scope="col">ConsignmentID</th>
+            <th scope="col">ConsignmentSource</th>
+            <th scope="col">ConsignmentDestination</th>
+            <th scope="col">ConsignmentStatus</th>
+            <th scope="col">ConsignmentVolume</th>
+            <th scope="col">ConsignmentCost</th>
+            <th scope="col">TruckAssigned</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>{{session.consignment.consignmentID}}</td>
+                <td>{{session.consignment.sourceAddress}}</td>
+                <td>{{session.consignment.destinationAddress}}</td>
+                <td>{{session.consignment.status}}</td>
+                <td>{{session.consignment.volume}}</td>
+                <td>{{session.consignment.revenue}}</td>
+                <td>
+                    {% if session.consignment.truckAssigned == 0%}
+                        Not Assigned
+                    {% else %}
+                        {{session.consignment.truckAssigned}}
+                    {% endif %}
+                </td>
+            </tr>
+    </tbody>
+</table>
+{% endblock %}
+
+                                        

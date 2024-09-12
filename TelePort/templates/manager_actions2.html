@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block title %}
+    Manager Actions
+{% endblock %}
+{% block content %}
+
+<div class="container rounded bg-light mt-5 mb-5" style="color:black ">
+    <div class="row">
+        <div class="col-md-4 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
+                    width="150px"
+                    src="{{ url_for('static',filename='images/managerIcon.png') }}"><span
+                    class="font-weight-bold">{{session.manager.name}}</span><span
+                    class="text-black-50">{{session.manager.email}}</span></div>
+        </div>
+        <div class="col border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Manager Actions</h4>
+                </div>
+                
+               
+                <div class="row mt-3">
+                    <a href="{{ url_for('create_branch') }}" class="btn btn-dark btn-lg btn-block">Create Branch</a>
+                </div>
+                <div class="row mt-3">
+                    <button class="btn btn-info btn-lg btn-block" data-bs-toggle="modal"
+                    data-bs-target="#P_Modal">View Truck Status</button>
+                    <div class="modal fade" id="P_Modal" tabindex="-1" role="dialog"
+                        aria-labelledby="Label2" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="Label2">Enter Truck ID</h5>
+                                </div>
+                                <form method="POST" class="form2-register" style="color:white">
+                                <div class="modal-body">
+                                    <input type="hidden" id="form2-submit" name="form2-submit" value="Submit form">
+                                        {{form2.hidden_tag()}}
+                                        <span class="d-block p-2 bg-dark text-white">{{form2.truckID.label()}}</span>
+                                        {{form2.truckID(class = "form-control", placeholder = "Truck ID")}}
+                                        <br>
+                                            {{ form2.submit(class="btn btn-lg btn-block btn-primary") }}
+                                </div>
+                                </form>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <button class="btn btn-dark btn-lg btn-block" data-bs-toggle="modal"
+                    data-bs-target="#Q_Modal">View Branch Consignment Details</button>
+                    <div class="modal fade" id="Q_Modal" tabindex="-1" role="dialog"
+                        aria-labelledby="Label2" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="Label2">Enter Branch ID</h5>
+                                </div>
+                                <form method="POST" class="form3-register" style="color:white">
+                                    <input type="hidden" id="form3-submit" name="form3-submit" value="Submit form">
+                                    <div class="modal-body">
+                                    
+                                        {{form3.hidden_tag()}}
+                                        <span class="d-block p-2 bg-dark text-white">{{form3.branchID.label()}}</span>
+                                        {{form3.branchID(class = "form-control", placeholder = "Enter Branch ID")}}
+                                        <br>
+                                            {{ form3.submit(class="btn btn-lg btn-block btn-primary") }}
+                                </div>
+                                </form>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <a href="{{ url_for('view_branch_details') }}" class="btn btn-info btn-lg btn-block">View Branch Details</a>
+                </div>
+                <div class="row mt-3">
+                    <a href="{{ url_for('create_employee') }}" class="btn btn-dark btn-lg btn-block">Add Employee</a>
+                </div>
+                <div class="row mt-3">
+                    <a href="{{ url_for('add_truck') }}" class="btn btn-info btn-lg btn-block">Add Truck</a>
+                </div>
+                <div class="row mt-3">
+                    <a href="{{ url_for('idle_waiting_time_consignment') }}" class="btn btn-dark btn-lg btn-block">Idle waiting time of consignments</a>
+                </div>
+                <div class="row mt-3">
+                    <a href="{{ url_for('idle_truck_waiting_time') }}" class="btn btn-info btn-lg btn-block">Idle waiting time of Trucks</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+{% endblock %}

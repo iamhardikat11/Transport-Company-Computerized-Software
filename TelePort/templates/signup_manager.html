@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}
+Signup Manager
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <style>
+        img{
+            width: 20%;
+        }
+    </style>
+    <div class="container">
+        <br><br><br>
+        <form method="POST" class="form-register" style="color:white">
+            {{form.hidden_tag()}}
+            <img class="mb-4" src="{{ url_for('static',filename='images/managerIcon.png') }}" alt="">
+            <br>
+            <h4 class="text-left">Manager SignUp</h4>
+            <span class="d-block p-2 bg-dark text-white">{{form.Name.label()}}</span>
+            {{form.Name(class = "form-control", placeholder = "Name")}}
+            <span class="d-block p-2 bg-dark text-white">{{form.address.label()}}</span>
+            {{form.address(class = "form-control", placeholder = "Address")}}
+            <span class="d-block p-2 bg-dark text-white">{{form.phoneNumber.label()}}</span>
+            {{form.phoneNumber(class = "form-control", placeholder = "Contact No.")}}
+            <span class="d-block p-2 bg-dark text-white">{{form.email.label()}}</span>
+            {{form.email(class = "form-control", placeholder = "Email ID")}}
+            <span class="d-block p-2 bg-dark text-white">{{form.password1.label()}}</span>
+            {{form.password1(class = "form-control", placeholder = "Password")}}
+            <span class="d-block p-2 bg-dark text-white">{{form.password2.label()}}</span>
+            {{form.password2(class = "form-control", placeholder = "Confirm Password")}}
+            <br>
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+            <br><br><br><br><br>
+        </form>
+    </div>
+</body>
+{% endblock %}

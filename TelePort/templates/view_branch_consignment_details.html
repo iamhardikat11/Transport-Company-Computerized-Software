@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}
+Consignment Details 
+{% endblock %}
+{% block content %}
+
+<h2>Consignments Sent</h2>
+<table class="table table-hover table-dark">
+    <thead class = "thead-dark">
+        <tr>
+            <!-- Your Columns HERE -->
+            <th scope="col">ConsignmentID</th>
+            <th scope="col">ConsignmentSource</th>
+            <th scope="col">ConsignmentDestination</th>
+            <th scope="col">ConsignmentStatus</th>
+            <th scope="col">ConsignmentVolume</th>
+            <th scope="col">ConsignmentCost</th>
+            <th scope="col">TruckAssigned</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for consignment in sent %}
+            <tr>
+                <td>{{consignment.consignmentID}}</td>
+                <td>{{consignment.sourceAddress}}</td>
+                <td>{{consignment.destinationAddress}}</td>
+                <td>{{consignment.status}}</td>
+                <td>{{consignment.volume}}</td>
+                <td>{{consignment.revenue}}</td>
+                <td>
+                    {% if consignment.truckAssigned == 0 %}
+                        Not Assigned
+                    {% else %}
+                        {{consignment.truckAssigned}}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h2>Consignments Received</h2>
+<table class="table table-hover table-dark">
+    <thead class = "thead-dark">
+        <tr>
+            <!-- Your Columns HERE -->
+            <th scope="col">ConsignmentID</th>
+            <th scope="col">ConsignmentSource</th>
+            <th scope="col">ConsignmentDestination</th>
+            <th scope="col">ConsignmentStatus</th>
+            <th scope="col">ConsignmentVolume</th>
+            <th scope="col">ConsignmentCost</th>
+            <th scope="col">TruckAssigned</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for consignment in received %}
+            <tr>
+                <td>{{consignment.consignmentID}}</td>
+                <td>{{consignment.sourceAddress}}</td>
+                <td>{{consignment.destinationAddress}}</td>
+                <td>{{consignment.status}}</td>
+                <td>{{consignment.volume}}</td>
+                <td>{{consignment.revenue}}</td>
+                <td>
+                    {% if consignment.truckAssigned == 0 %}
+                        Not Assigned
+                    {% else %}
+                        {{consignment.truckAssigned}}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+                                        

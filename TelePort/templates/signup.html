@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title>Login System</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/login.css') }}">
+</head>
+<body>
+    
+    <div class="nav">
+
+        <div class="logo">Signup System</div>
+
+    </div>
+    <div class="navbar">
+
+        <div class="option">
+            <a href="{{ url_for('login') }}" class="option-link">Log In</a>
+        </div>
+        <div class="option">
+            <!-- <a href="{{ url_for('about') }}" class="option-link">Sign up</a> -->
+            <a href="#" class="option-link">Sign up</a>
+        </div>
+        <div style="clear: both;"></div>
+
+    </div>
+    <div class="container">
+        <form>
+            <select name="branch" id="branch" class="login-input">
+                <option value="">Select Role</option>
+                <option value="1">Employee</option>
+                <option value="2">Customer</option>
+                <option value="3">Manager</option>
+            </select><br />
+            Email <br />
+            <input type="text" class="login-input" name="email"/> <br />
+            ID <br />
+            <input type="text" class="login-input" name="ID"/> <br />
+            Address <br />
+            <input type="text" class="login-input" name="Address"/> <br />
+            MobileNo <br />
+            <input type="text" class="login-input" name="MobileNo"/> <br />
+            Branch/Consignment ID<br />
+            <input type="text" class="login-input" name="Branch ID"/> <br />
+            Password
+            <input type="password" class="login-input" name="password"/> <br />
+            <input type="submit" value="Sign Up!" id="login-button"/>
+        </form>
+
+    </div>
+</body>
+</html>

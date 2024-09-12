@@ -1,0 +1,28 @@
+<html>
+<body>
+    <h2>
+        Averaging Waiting Time of Consignments => {{ datedic.minute }} minutes , {{ datedic.second }} seconds
+        <h2>
+        <h3>Consignment Idle Time Statistics</h2>
+        <table class="table table-hover table-dark">
+            <thead class = "thead-dark">
+                <tr>
+                    <!-- Your Columns HERE -->
+                    <th scope="col">BranchID</th>
+                    <th scope="col">Consignment Count</th>
+                    <th scope="col">Average Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dic in time_list %}
+                    <tr>
+                        <td>{{dic.ID}}</td>
+                        <td>{{dic.count}}</td>
+                        <td>{{datedic.minute}} minutes,{{datetime.second}} seconds </td>
+                        <td>{{datetime.second}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</body>
+</html>

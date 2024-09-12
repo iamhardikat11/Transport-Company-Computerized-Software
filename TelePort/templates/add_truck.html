@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+Add Truck
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <style>
+        img{
+            width: 20%;
+        }
+    </style>
+    <div class="container">
+        <br>
+        <form method="POST" class="form-register" style="color:white">
+            {{form.hidden_tag()}}
+            <img class="mb-4 rounded-circle" src="{{ url_for('static',filename='images/truck_final.jpg') }}" alt="">
+            <br>
+            <h4 class="text-left">Add Truck</h4>
+            <br>
+            <span class="d-block p-2 bg-dark text-white">{{form.truckID.label()}}</span>
+            {{form.truckID(class = "form-control", placeholder = "Enter Truck ID")}}
+            <span class="d-block p-2 bg-dark text-white">{{form.currentBranchID.label()}}</span>
+            {{form.currentBranchID(class = "form-control", placeholder = "Enter Branch ID")}}
+            <br>
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+            <br><br><br><br><br>
+        </form>
+    </div>
+</body>
+{% endblock %}

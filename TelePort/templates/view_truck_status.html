@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}
+Truck Status
+{% endblock %}
+{% block content %}
+<h2>Truck Delivery Details</h2>
+<table class="table table-hover table-dark">
+    <thead class = "thead-dark">
+        <tr>
+            <!-- Your Columns HERE -->
+            <th scope="col">TruckID</th>
+            <th scope="col">Current Branch</th>
+            <th scope="col">Number of consignments Delivered</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>{{session.truck.truckID}}</td>
+                <td>{{session.truck.currentBranchID}}</td>
+                <td>{{session.truck.numConsignments}}</td>
+            </tr>
+    </tbody>
+</table>
+<h2>Consignments Delivered</h2>
+<table class="table table-hover table-dark">
+    <thead class = "thead-dark">
+        <tr>
+            <!-- Your Columns HERE -->
+            <th scope="col">Consignment ID</th>
+            <th scope="col">Sender ID</th>
+            <th scope="col">Receiver ID</th>
+            <th scope="col">Volume</th>
+            <th scope="col">Revenue</th>
+        </tr>
+    </thead>
+    <tbody>
+            {% for consignment in list %}
+            <tr>
+                <td>{{consignment.consignmentID}}</td>
+                <td>{{consignment.senderID}}</td>
+                <td>{{consignment.receiverID}}</td>
+                <td>{{consignment.volume}}</td>
+                <td>{{consignment.revenue}}</td>
+            </tr>
+        {%  endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+                                        

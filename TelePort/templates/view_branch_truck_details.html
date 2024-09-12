@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}
+Truck Details (Branch: {{session.employee.branchID}})
+{% endblock %}
+{% block content %}
+<h2>Truck Details (Branch: {{session.employee.branchID}})</h2>
+<table class="table table-hover table-dark">
+    <thead class = "thead-dark">
+        <tr>
+            <!-- Your Columns HERE -->
+            <th scope="col">Current Branch</th>
+            <th scope="col">truckID</th>
+            <th scope="col">Number of Consignments Delivered</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for truck in trucks %}
+            <tr>
+                <td>{{truck.currentBranchID}}</td>
+                <td>{{truck.truckID}}</td>
+                <td>{{truck.numConsignments}}</td>
+            </tr>
+        {%  endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+                                        

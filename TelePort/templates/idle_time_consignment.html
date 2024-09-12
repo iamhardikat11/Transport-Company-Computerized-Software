@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}
+Average Consignment Delivery Time
+{% endblock %}
+{% block content %}
+<h2>Average Consignment Delivery Time</h2>
+<table class="table table-hover table-dark">
+    <thead class = "thead-dark">
+        <tr>
+            
+            <th scope="col">Average Days</th>
+            <th scope="col">Average Hours</th>
+            <th scope="col">Average Minutes</th>
+            <th scope="col">Average Seconds</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ datedic.day }}</td>
+            <td>{{datedic.hour}}</td>
+            <td>{{datedic.minute}}</td>
+            <td>{{datedic.second}}</td>
+            
+            
+        </tr>
+    </tbody>
+</table>
+<h3>Consignment Idle Time Statistics</h2>
+    <table class="table table-hover table-dark">
+        <thead class = "thead-dark">
+            <tr>
+                <!-- Your Columns HERE -->
+                <th scope="col">BranchID</th>
+                <th scope="col">Consignment Count</th>
+                <th scope="col">Average Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dic in time_list %}
+                <tr>
+                    <td>{{dic.ID}}</td>
+                    <td>{{dic.count}}</td>
+                    <td>{{dic.day}} days,{{dic.hour}} hours,{{dic.minute}} minutes,{{dic.second}} seconds </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+{% endblock %}
+
+                                        

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+Create Branch
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <style>
+        img{
+            width: 20%;
+        }
+    </style>
+    <div class="container">
+        <br><br><br>
+        <form method="POST" class="form-register" style="color:white">
+            {{form.hidden_tag()}}
+            <img class="mb-4" src="{{ url_for('static',filename='images/office.png') }}" alt="">
+            <br>
+            <h4 class="text-left">Create Branch</h4>
+            
+            <div>
+            <span class="rounded d-block p-2 bg-dark text-white">{{form.officeID.label()}}</span>
+            <span class = "d-block">{{form.officeID(class = "form-control", placeholder = "Enter branch ID")}}</span>
+            </div>
+            <span class="d-block p-2 bg-dark text-white">{{form.address.label()}}</span>
+            {{form.address(class = "form-control", placeholder = "Address")}}
+            <span class="d-block p-2 bg-dark text-white">{{form.phoneNumber.label()}}</span>
+            {{form.phoneNumber(class = "form-control", placeholder = "Contact No.")}}
+            <span class="d-block p-2 bg-dark text-white">{{form.rate.label()}}</span>
+            {{form.rate(class = "form-control", placeholder = "Rate")}}
+            <br>
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+            <br><br><br><br><br>
+        </form>
+    </div>
+</body>
+{% endblock %}
